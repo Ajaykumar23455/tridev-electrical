@@ -95,7 +95,7 @@ if (prev) {
 
 if (slides.length > 0) {
 
-    setInterval(nextSlide, 400000);
+    setInterval(nextSlide, 4000);
 
 }
 

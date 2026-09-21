@@ -2130,7 +2130,7 @@ nav ul li:hover::after{
          position: relative;
 
         bottom: 30px;
-        left: 1%;
+        left: -5%;
 
         text-align: justify;
 
@@ -2165,7 +2165,7 @@ nav ul li:hover::after{
          position: relative;
 
         bottom: 35px;
-        left: 8px;
+        left: 5px;
         margin: 25px auto 0;
 
         max-width: 400px;

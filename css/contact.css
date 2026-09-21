@@ -4252,3 +4252,338 @@ nav ul li:hover::after{
     }
 
 }
+
+
+
+
+
+/* =========================================================
+   FINAL MOBILE NAV FIX
+   300px - 1080px TOUCH DEVICES
+   MENU MUST BE HIDDEN UNTIL ☰ IS CLICKED
+========================================================= */
+
+@media screen and (hover: none) and (pointer: coarse) and (max-width: 1080px) {
+
+    /* =========================================
+       NAV HIDDEN BY DEFAULT
+       ========================================= */
+
+    nav#mobileNav {
+        position: fixed !important;
+
+        top: 72px !important;
+        right: -240px !important;
+        left: auto !important;
+
+        width: 220px !important;
+        height: auto !important;
+
+        display: block !important;
+
+        margin: 0 !important;
+        padding: 0 !important;
+
+        background: #ffffff !important;
+
+        box-shadow: -5px 8px 20px rgba(0,0,0,0.20) !important;
+
+        z-index: 9999 !important;
+
+        opacity: 0 !important;
+        visibility: hidden !important;
+
+        pointer-events: none !important;
+
+        transform: translateX(0) !important;
+
+        transition:
+            right 0.35s ease,
+            opacity 0.2s ease,
+            visibility 0.2s ease !important;
+    }
+
+
+    /* =========================================
+       ONLY SHOW AFTER ☰ IS CLICKED
+       ========================================= */
+
+    nav#mobileNav.mobile-active {
+        position: fixed !important;
+
+        top: 72px !important;
+        right: 0 !important;
+        left: auto !important;
+
+        width: 220px !important;
+
+        display: block !important;
+
+        opacity: 1 !important;
+        visibility: visible !important;
+
+        pointer-events: auto !important;
+
+        z-index: 9999 !important;
+    }
+
+
+    /* =========================================
+       MENU LIST
+       ========================================= */
+
+    nav#mobileNav ul {
+        display: flex !important;
+
+        flex-direction: column !important;
+
+        width: 100% !important;
+
+        margin: 0 !important;
+        padding: 8px 0 !important;
+
+        gap: 0 !important;
+
+        list-style: none !important;
+    }
+
+
+    /* =========================================
+       MENU ITEMS
+       ========================================= */
+
+    nav#mobileNav ul li {
+        width: 100% !important;
+
+        margin: 0 !important;
+        padding: 0 !important;
+
+        position: relative !important;
+    }
+
+
+    /* =========================================
+       MENU LINKS
+       ========================================= */
+
+    nav#mobileNav ul li a {
+        display: block !important;
+
+        width: 100% !important;
+
+        box-sizing: border-box !important;
+
+        padding: 15px 20px !important;
+
+        color: #0b1d39 !important;
+
+        background: #ffffff !important;
+
+        font-size: 16px !important;
+
+        font-weight: 500 !important;
+
+        line-height: 1.2 !important;
+
+        text-decoration: none !important;
+
+        white-space: nowrap !important;
+    }
+
+
+    /* =========================================
+       ACTIVE LINK
+       ========================================= */
+
+    nav#mobileNav ul li a.active {
+        color: #f4c542 !important;
+
+        background: #fafafa !important;
+    }
+
+
+    /* =========================================
+       REMOVE DESKTOP UNDERLINES
+       ========================================= */
+
+    nav#mobileNav ul li::after,
+    nav#mobileNav ul li a::after,
+    nav#mobileNav ul li a.active::after {
+        display: none !important;
+
+        content: none !important;
+    }
+
+
+    /* =========================================
+       HAMBURGER
+       ========================================= */
+
+    .menu-button {
+        display: flex !important;
+
+        visibility: visible !important;
+
+        opacity: 1 !important;
+
+        pointer-events: auto !important;
+
+        z-index: 10000 !important;
+    }
+
+}
+
+/* =========================================================
+   TABLET / DESKTOP VIEW
+   800px - 1080px
+   SHOW NAVIGATION HEADINGS
+   HIDE HAMBURGER
+========================================================= */
+
+@media screen and (min-width: 800px) and (max-width: 1080px) {
+
+    /* =========================================
+       SHOW HOME / ABOUT / SERVICES / CONTACT
+    ========================================= */
+
+    nav#mobileNav {
+
+        position: static !important;
+
+        top: auto !important;
+        right: auto !important;
+        left: auto !important;
+
+        width: auto !important;
+        height: auto !important;
+
+        display: block !important;
+
+        margin-left: auto !important;
+        padding: 0 !important;
+
+        background: transparent !important;
+
+        box-shadow: none !important;
+
+        opacity: 1 !important;
+        visibility: visible !important;
+
+        pointer-events: auto !important;
+
+        transform: none !important;
+
+        transition: none !important;
+
+        z-index: 1000 !important;
+    }
+
+
+    /* =========================================
+       NAVIGATION ROW
+    ========================================= */
+
+    nav#mobileNav ul {
+
+        display: flex !important;
+
+        flex-direction: row !important;
+
+        align-items: center !important;
+
+        justify-content: flex-end !important;
+
+        width: auto !important;
+
+        margin: 0 !important;
+        padding: 0 !important;
+
+        gap: 25px !important;
+
+        list-style: none !important;
+    }
+
+
+    /* =========================================
+       NAV ITEMS
+    ========================================= */
+
+    nav#mobileNav ul li {
+
+        width: auto !important;
+
+        margin: 0 !important;
+        padding: 0 !important;
+
+        position: relative !important;
+    }
+
+
+    /* =========================================
+       NAV LINKS
+    ========================================= */
+
+    nav#mobileNav ul li a {
+
+        display: inline-block !important;
+
+        width: auto !important;
+
+        padding: 8px 0 !important;
+
+        color: #000000 !important;
+
+        background: transparent !important;
+
+        font-size: 14px !important;
+
+        font-weight: 500 !important;
+
+        line-height: 1.2 !important;
+
+        text-decoration: none !important;
+
+        white-space: nowrap !important;
+    }
+
+
+    /* =========================================
+       HOVER
+    ========================================= */
+
+    nav#mobileNav ul li a:hover {
+
+        color: #f4c542 !important;
+
+        background: transparent !important;
+    }
+
+
+    /* =========================================
+       ACTIVE PAGE
+    ========================================= */
+
+    nav#mobileNav ul li a.active {
+
+        color: #f4c542 !important;
+
+        background: transparent !important;
+    }
+
+
+    /* =========================================
+       HAMBURGER MUST NOT SHOW
+    ========================================= */
+
+    .menu-button {
+
+        display: none !important;
+
+        visibility: hidden !important;
+
+        opacity: 0 !important;
+
+        pointer-events: none !important;
+    }
+
+}

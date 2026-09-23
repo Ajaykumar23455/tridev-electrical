@@ -4665,229 +4665,45 @@ nav ul li:hover::after{
 
 
 /* =========================================================
-   FINAL MOBILE / TOUCH NAVIGATION FIX
-   IMPORTANT:
-   When mobile page is zoomed OUT, menu MUST stay hidden.
-   It should appear ONLY after clicking ☰.
+   FINAL FIX - REMOVE RIGHT SIDE SPACE WHEN ZOOMING OUT
 ========================================================= */
 
-@media screen and (hover: none) and (pointer: coarse) and (max-width: 1080px) {
-
-    /* =========================================
-       NAVIGATION HIDDEN BY DEFAULT
-    ========================================= */
-
-    nav#mobileNav {
-        position: fixed !important;
-
-        top: 72px !important;
-        right: 0 !important;
-        left: auto !important;
-
-        width: 220px !important;
-        max-width: 220px !important;
-
-        height: auto !important;
-
-        display: block !important;
-
-        margin: 0 !important;
-        padding: 0 !important;
-
-        background: #ffffff !important;
-
-        box-shadow: -5px 8px 20px rgba(0,0,0,0.20) !important;
-
-        z-index: 9999 !important;
-
-        /* HIDDEN */
-        opacity: 0 !important;
-        visibility: hidden !important;
-        pointer-events: none !important;
-
-        /* Move completely outside screen */
-        transform: translateX(100%) !important;
-
-        transition:
-            transform 0.35s ease,
-            opacity 0.2s ease,
-            visibility 0.2s ease !important;
-    }
-
-
-    /* =========================================
-       SHOW ONLY AFTER ☰ CLICK
-    ========================================= */
-
-    nav#mobileNav.mobile-active {
-        position: fixed !important;
-
-        top: 72px !important;
-        right: 0 !important;
-        left: auto !important;
-
-        width: 220px !important;
-        max-width: 220px !important;
-
-        display: block !important;
-
-        opacity: 1 !important;
-        visibility: visible !important;
-        pointer-events: auto !important;
-
-        transform: translateX(0) !important;
-
-        z-index: 9999 !important;
-    }
-
-
-    /* =========================================
-       MENU LIST
-    ========================================= */
-
-    nav#mobileNav ul {
-        display: flex !important;
-
-        flex-direction: column !important;
-
-        width: 100% !important;
-
-        margin: 0 !important;
-        padding: 8px 0 !important;
-
-        gap: 0 !important;
-
-        list-style: none !important;
-    }
-
-
-    /* =========================================
-       MENU ITEMS
-    ========================================= */
-
-    nav#mobileNav ul li {
-        width: 100% !important;
-
-        margin: 0 !important;
-        padding: 0 !important;
-
-        position: relative !important;
-    }
-
-
-    /* =========================================
-       MENU LINKS
-    ========================================= */
-
-    nav#mobileNav ul li a {
-        display: block !important;
-
-        width: 100% !important;
-
-        box-sizing: border-box !important;
-
-        padding: 15px 20px !important;
-
-        color: #0b1d39 !important;
-
-        background: #ffffff !important;
-
-        font-size: 16px !important;
-
-        font-weight: 500 !important;
-
-        line-height: 1.2 !important;
-
-        text-decoration: none !important;
-
-        white-space: nowrap !important;
-    }
-
-
-    /* =========================================
-       ACTIVE LINK
-    ========================================= */
-
-    nav#mobileNav ul li a.active {
-        color: #f4c542 !important;
-
-        background: #fafafa !important;
-    }
-
-
-    /* =========================================
-       REMOVE DESKTOP UNDERLINE
-    ========================================= */
-
-    nav#mobileNav ul li::after,
-    nav#mobileNav ul li a::after,
-    nav#mobileNav ul li a.active::after {
-        display: none !important;
-        content: none !important;
-    }
-
-
-    /* =========================================
-       HAMBURGER
-    ========================================= */
-
-    .menu-button {
-        display: flex !important;
-
-        visibility: visible !important;
-        opacity: 1 !important;
-
-        pointer-events: auto !important;
-
-        z-index: 10000 !important;
-    }
-
-
-    /* =========================================
-       PREVENT HORIZONTAL SPACE
-    ========================================= */
-
-    html,
-    body {
-        width: 100% !important;
-        max-width: 100% !important;
-
-        margin: 0 !important;
-        padding: 0 !important;
-
-        overflow-x: hidden !important;
-    }
+html,
+body {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden !important;
 }
 
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
 
-/* =========================================================
-   EXTRA MOBILE WIDTH PROTECTION
-========================================================= */
+/* Main sections */
+.service-hero,
+.services,
+.brands,
+.industries,
+.main-footer,
+.footer-bottom {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+}
 
-@media screen and (hover: none) and (pointer: coarse) and (max-width: 1080px) {
+/* Prevent images from making page wider */
+img {
+    max-width: 100%;
+}
 
-    *,
-    *::before,
-    *::after {
-        box-sizing: border-box !important;
-    }
-
-    body {
-        overflow-x: hidden !important;
-    }
-
-    .top-bar,
-    header,
-    .service-hero,
-    .services,
-    .brands,
-    .industries,
-    .main-footer {
-        width: 100% !important;
-        max-width: 100% !important;
-    }
-
-    img {
-        max-width: 100% !important;
-    }
+/* Prevent containers from exceeding screen */
+.service-container,
+.industry-container,
+.footer-container,
+.footer-bottom-container {
+    max-width: 100%;
 }

@@ -4665,222 +4665,170 @@ nav ul li:hover::after{
 
 
 /* =========================================================
-   FINAL MOBILE WIDTH / ZOOM-OUT FIX
-   TOUCH DEVICES ONLY
-   KEEPS MOBILE CONTENT FITTED TO SCREEN
+   FINAL MOBILE / TOUCH NAVIGATION FIX
+   IMPORTANT:
+   When mobile page is zoomed OUT, menu MUST stay hidden.
+   It should appear ONLY after clicking ☰.
 ========================================================= */
 
-@media screen and (hover: none) and (pointer: coarse) and (max-width: 799px) {
-
-    html,
-    body {
-        width: 100% !important;
-        max-width: 100% !important;
-        min-width: 0 !important;
-
-        margin: 0 !important;
-        padding: 0 !important;
-
-        overflow-x: hidden !important;
-    }
-
+@media screen and (hover: none) and (pointer: coarse) and (max-width: 1080px) {
 
     /* =========================================
-       IMPORTANT - PREVENT ANY ELEMENT
-       FROM CREATING RIGHT-SIDE SPACE
-    ========================================= */
-
-    *,
-    *::before,
-    *::after {
-        box-sizing: border-box !important;
-    }
-
-
-    /* =========================================
-       MAIN PAGE ELEMENTS
-    ========================================= */
-
-    body > *,
-    main,
-    section,
-    header,
-    footer,
-    nav,
-    div {
-        max-width: 100% !important;
-    }
-
-
-    /* =========================================
-       IMAGES
-    ========================================= */
-
-    img {
-        max-width: 100% !important;
-    }
-
-
-    /* =========================================
-       HEADER
-    ========================================= */
-
-    header,
-    header.sticky {
-        width: 100% !important;
-        max-width: 100% !important;
-
-        left: 0 !important;
-        right: 0 !important;
-    }
-
-
-    /* =========================================
-       TOP BAR
-    ========================================= */
-
-    .top-bar {
-        width: 100% !important;
-        max-width: 100% !important;
-
-        left: 0 !important;
-        right: 0 !important;
-    }
-
-
-    /* =========================================
-       HERO SECTIONS
-    ========================================= */
-
-    .about-hero,
-    .contact-hero,
-    .projects-hero,
-    .service-hero {
-        width: 100% !important;
-        max-width: 100% !important;
-
-        margin-left: 0 !important;
-        margin-right: 0 !important;
-    }
-
-
-    /* =========================================
-       MAIN SECTIONS
-    ========================================= */
-
-    .about,
-    .about-section,
-    .services,
-    .industries,
-    .projects,
-    .contact-section,
-    .map-section,
-    .main-footer {
-        width: 100% !important;
-        max-width: 100% !important;
-
-        margin-left: 0 !important;
-        margin-right: 0 !important;
-    }
-
-
-    /* =========================================
-       COMMON CONTAINERS
-    ========================================= */
-
-    .container,
-    .about .container,
-    .services .container,
-    .contact-container,
-    .footer-container,
-    .service-container,
-    .industry-container {
-        width: 100% !important;
-        max-width: 100% !important;
-
-        margin-left: auto !important;
-        margin-right: auto !important;
-    }
-
-
-    /* =========================================
-       PREVENT TEXT FROM MAKING PAGE WIDER
-    ========================================= */
-
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6,
-    p,
-    a,
-    span {
-        max-width: 100% !important;
-
-        overflow-wrap: break-word !important;
-        word-wrap: break-word !important;
-    }
-
-
-    /* =========================================
-       FORMS
-    ========================================= */
-
-    input,
-    textarea,
-    select,
-    button {
-        max-width: 100% !important;
-    }
-
-
-    /* =========================================
-       MOBILE NAV
-       HIDDEN UNTIL MENU BUTTON IS CLICKED
+       NAVIGATION HIDDEN BY DEFAULT
     ========================================= */
 
     nav#mobileNav {
         position: fixed !important;
 
         top: 72px !important;
-        right: -240px !important;
+        right: 0 !important;
         left: auto !important;
 
         width: 220px !important;
         max-width: 220px !important;
 
+        height: auto !important;
+
+        display: block !important;
+
+        margin: 0 !important;
+        padding: 0 !important;
+
+        background: #ffffff !important;
+
+        box-shadow: -5px 8px 20px rgba(0,0,0,0.20) !important;
+
+        z-index: 9999 !important;
+
+        /* HIDDEN */
         opacity: 0 !important;
         visibility: hidden !important;
         pointer-events: none !important;
 
-        z-index: 9999 !important;
+        /* Move completely outside screen */
+        transform: translateX(100%) !important;
 
         transition:
-            right 0.35s ease,
+            transform 0.35s ease,
             opacity 0.2s ease,
             visibility 0.2s ease !important;
     }
 
 
     /* =========================================
-       SHOW ONLY AFTER HAMBURGER CLICK
+       SHOW ONLY AFTER ☰ CLICK
     ========================================= */
 
     nav#mobileNav.mobile-active {
+        position: fixed !important;
+
+        top: 72px !important;
         right: 0 !important;
+        left: auto !important;
+
+        width: 220px !important;
+        max-width: 220px !important;
+
+        display: block !important;
 
         opacity: 1 !important;
         visibility: visible !important;
         pointer-events: auto !important;
 
-        width: 220px !important;
-        max-width: 220px !important;
+        transform: translateX(0) !important;
+
+        z-index: 9999 !important;
     }
 
 
     /* =========================================
-       HAMBURGER ALWAYS VISIBLE
+       MENU LIST
+    ========================================= */
+
+    nav#mobileNav ul {
+        display: flex !important;
+
+        flex-direction: column !important;
+
+        width: 100% !important;
+
+        margin: 0 !important;
+        padding: 8px 0 !important;
+
+        gap: 0 !important;
+
+        list-style: none !important;
+    }
+
+
+    /* =========================================
+       MENU ITEMS
+    ========================================= */
+
+    nav#mobileNav ul li {
+        width: 100% !important;
+
+        margin: 0 !important;
+        padding: 0 !important;
+
+        position: relative !important;
+    }
+
+
+    /* =========================================
+       MENU LINKS
+    ========================================= */
+
+    nav#mobileNav ul li a {
+        display: block !important;
+
+        width: 100% !important;
+
+        box-sizing: border-box !important;
+
+        padding: 15px 20px !important;
+
+        color: #0b1d39 !important;
+
+        background: #ffffff !important;
+
+        font-size: 16px !important;
+
+        font-weight: 500 !important;
+
+        line-height: 1.2 !important;
+
+        text-decoration: none !important;
+
+        white-space: nowrap !important;
+    }
+
+
+    /* =========================================
+       ACTIVE LINK
+    ========================================= */
+
+    nav#mobileNav ul li a.active {
+        color: #f4c542 !important;
+
+        background: #fafafa !important;
+    }
+
+
+    /* =========================================
+       REMOVE DESKTOP UNDERLINE
+    ========================================= */
+
+    nav#mobileNav ul li::after,
+    nav#mobileNav ul li a::after,
+    nav#mobileNav ul li a.active::after {
+        display: none !important;
+        content: none !important;
+    }
+
+
+    /* =========================================
+       HAMBURGER
     ========================================= */
 
     .menu-button {
@@ -4890,5 +4838,56 @@ nav ul li:hover::after{
         opacity: 1 !important;
 
         pointer-events: auto !important;
+
+        z-index: 10000 !important;
+    }
+
+
+    /* =========================================
+       PREVENT HORIZONTAL SPACE
+    ========================================= */
+
+    html,
+    body {
+        width: 100% !important;
+        max-width: 100% !important;
+
+        margin: 0 !important;
+        padding: 0 !important;
+
+        overflow-x: hidden !important;
+    }
+}
+
+
+/* =========================================================
+   EXTRA MOBILE WIDTH PROTECTION
+========================================================= */
+
+@media screen and (hover: none) and (pointer: coarse) and (max-width: 1080px) {
+
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box !important;
+    }
+
+    body {
+        overflow-x: hidden !important;
+    }
+
+    .top-bar,
+    header,
+    .service-hero,
+    .services,
+    .brands,
+    .industries,
+    .main-footer {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    img {
+        max-width: 100% !important;
     }
 }
